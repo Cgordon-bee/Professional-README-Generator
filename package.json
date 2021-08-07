@@ -1,0 +1,24 @@
+{
+  "name": "index.js",
+  "version": "1.0.0",
+  "description": "This is a comprehensive readme file that is generated from the command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "yes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cgordon-bee/Professional-README-Generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generate",
+    "professional"
+  ],
+  "author": "Carol Gordon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cgordon-bee/Professional-README-Generator/issues"
+  },
+  "homepage": "https://github.com/Cgordon-bee/Professional-README-Generator#readme"
+}
