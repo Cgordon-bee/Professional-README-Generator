@@ -43,10 +43,19 @@ const questions = [
     },
     {
         type: "input",
-        message: "Who should the users know about this repository?",
-        name: "usage",
+        message: "would you welcome collaboration on this project?",
+        name: "usage"
+    },
+    {   type: "input",
+        message: "please enter you email address",
+        name: "email"
+
+
     }
   ]
+
+
+
 
   // const promptUser = async() => {
   //   const answers= await inquirer.prompt(questions)
@@ -57,9 +66,12 @@ const questions = [
     return inquirer
         .prompt(questions);
 }
-promptUser()
 
-const writeToFile = (fileName, data) => {
-  return writeFileAsync(fileName, data);
-}
+const answers = promptUser();
 
+// create markdown content from user answers
+
+
+// write markdown content to README.md file
+
+//
