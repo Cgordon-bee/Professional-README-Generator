@@ -1,25 +1,26 @@
 
 const inquirer = require('inquirer');
 const util =require("util");
-const fs = require("fs")
+const fs = require("fs");
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
-  .prompt([
-   
+
+const questions = [
     {
         type: "input",
-        message: "What is your GitHub user name?",
-        name: "username"
+        message: "What is your name?",
+        name: "username",
     },
     {
         type: "input",
         message: "What is your project's title?",
-        name: "title"
+        name: "title",
     },
     {
         type: "input",
         message: "Please write a short description of your project.",
-        name: "description"
+        name: "description",
     },
     {
         type: "list",
@@ -34,29 +35,31 @@ const fs = require("fs")
             "Mozilla Public License 2.0"
         ]
     },
+    {   
+        type: "input",
+        message: "installation required",
+        name: "installation ",
+        default: "Along with node other dependencies",
+    },
     {
         type: "input",
-        message: "What does the user need to know about contributing to the repository?",
-        name: "contribute"
-    },
-
-   
-]
-   
-    /* Pass your questions in here */
-  )
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
+        message: "Who should the users know about this repository?",
+        name: "usage",
     }
-  });
+  ]
 
+  // const promptUser = async() => {
+  //   const answers= await inquirer.prompt(questions)
+  //   console.log (answers)
+  // }
 
+  const promptUser = () => {
+    return inquirer
+        .prompt(questions);
+}
+promptUser()
 
-
+const writeToFile = (fileName, data) => {
+  return writeFileAsync(fileName, data);
+}
 
